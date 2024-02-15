@@ -1,20 +1,12 @@
-using System.Collections.Generic;
-using System.Numerics;
-
 namespace Brute_Force
 {
-    public class Brute_Force
+    public class Permutation
     {
-        public List<string> BruteForce(List<string> words)
+        static List<string> Permutate(List<string> words)
         {
-            List<string> _words = new List<string>();
-            _words.Add("");
-            foreach (string word in words)
-            {
-                _words.Add(word);
-            }
+            words.Insert(0, "");
 
-            int[] index = new int[_words.Count];
+            int[] index = new int[words.Count];
 
             for (int i = 0; i < index.Length; i++)
             {
@@ -44,11 +36,11 @@ namespace Brute_Force
                 string tempword = "";
                 for (int i = 1; i < index.Length; i++)
                 {
-                    tempword += _words[index[i - 1]];
+                    tempword += words[index[i - 1]];
                 }
                 returnwords.Add(tempword);
             }
             return returnwords;
-        }     
+        }
     }
 }
